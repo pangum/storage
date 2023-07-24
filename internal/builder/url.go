@@ -35,8 +35,22 @@ func (u *Url) Attachment() (url *Url) {
 	return
 }
 
+func (u *Url) Type(typ core.UrlType) (url *Url) {
+	u.param.Type = typ
+	url = u
+
+	return
+}
+
 func (u *Url) Internet() (url *Url) {
 	u.param.Export = core.Export_EXPORT_INTERNET
+	url = u
+
+	return
+}
+
+func (u *Url) Export(export core.Export) (url *Url) {
+	u.param.Export = export
 	url = u
 
 	return
