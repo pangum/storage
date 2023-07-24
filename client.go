@@ -13,22 +13,22 @@ import (
 	"google.golang.org/protobuf/types/known/durationpb"
 )
 
-// Storage 文件存储客户端
-type Storage struct {
+// Client 文件存储客户端
+type Client struct {
 	client *internal.Client
 	app    app.Id
 
 	_ gox.CannotCopy
 }
 
-func newStorage(client *internal.Client, app app.Id) *Storage {
-	return &Storage{
+func newClient(client *internal.Client, app app.Id) *Client {
+	return &Client{
 		client: client,
 		app:    app,
 	}
 }
 
-func (s *Storage) Initiate(
+func (s *Client) Initiate(
 	ctx context.Context,
 	mime string, name string,
 	parts int32, start int32,
@@ -44,34 +44,34 @@ func (s *Storage) Initiate(
 	})
 }
 
-func (s *Storage) Put(ctx context.Context, name string, content []byte) (int64, error) {
+func (s *Client) Put(ctx context.Context, name string, content []byte) (int64, error) {
 	return s.client.Put(ctx, int64(s.app), name, content)
 }
 
-func (s *Storage) Url() *builder.Url {
+func (s *Client) Url() *builder.Url {
 	return builder.NewUrl(s.client)
 }
 
-func (s *Storage) Complete(ctx context.Context, id int64, parts []*core.Part) (*file.CompleteRsp, error) {
+func (s *Client) Complete(ctx context.Context, id int64, parts []*core.Part) (*file.CompleteRsp, error) {
 	return s.client.Complete(ctx, &file.CompleteReq{
 		Id:    id,
 		Parts: parts,
 	})
 }
 
-func (s *Storage) Abort(ctx context.Context, id int64) (*file.AbortRsp, error) {
+func (s *Client) Abort(ctx context.Context, id int64) (*file.AbortRsp, error) {
 	return s.client.Abort(ctx, &file.AbortReq{
 		Id: id,
 	})
 }
 
-func (s *Storage) Delete(ctx context.Context, id int64) (*file.DeleteRsp, error) {
+func (s *Client) Delete(ctx context.Context, id int64) (*file.DeleteRsp, error) {
 	return s.client.Delete(ctx, &file.DeleteReq{
 		Id: id,
 	})
 }
 
-func (s *Storage) Deletes(ctx context.Context, ids []int64) (*file.DeletesRsp, error) {
+func (s *Client) Deletes(ctx context.Context, ids []int64) (*file.DeletesRsp, error) {
 	return s.client.Deletes(ctx, &file.DeletesReq{
 		Ids: ids,
 	})

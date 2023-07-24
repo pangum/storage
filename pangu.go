@@ -5,5 +5,5 @@ import (
 )
 
 func init() {
-	pangu.New().Dependency(newStorage)
+	pangu.New().Dependency(newClient)
 }
