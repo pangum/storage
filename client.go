@@ -52,10 +52,10 @@ func (s *Client) Url() *builder.Url {
 	return builder.NewUrl(s.client)
 }
 
-func (s *Client) Complete(ctx context.Context, id int64, parts []*core.Part) (*file.CompleteRsp, error) {
+func (s *Client) Complete(ctx context.Context, id int64, parts *[]*core.Part) (*file.CompleteRsp, error) {
 	return s.client.Complete(ctx, &file.CompleteReq{
 		Id:    id,
-		Parts: parts,
+		Parts: *parts,
 	})
 }
 
