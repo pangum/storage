@@ -3,18 +3,17 @@ package getter
 import (
 	"context"
 
-	"gitea.com/ruijc/storage/internal"
 	"gitea.com/ruijc/storage/internal/param"
 	"gitlab.com/ruijc/storage/file"
 	"google.golang.org/protobuf/types/known/durationpb"
 )
 
 type Url struct {
-	client *internal.Client
+	client *file.RpxClient
 	param  *param.Url
 }
 
-func NewUrl(client *internal.Client, param *param.Url) *Url {
+func NewUrl(client *file.RpxClient, param *param.Url) *Url {
 	return &Url{
 		client: client,
 		param:  param,

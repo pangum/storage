@@ -3,18 +3,18 @@ package builder
 import (
 	"time"
 
-	"gitea.com/ruijc/storage/internal"
 	"gitea.com/ruijc/storage/internal/getter"
 	"gitea.com/ruijc/storage/internal/param"
 	"gitlab.com/ruijc/storage/core"
+	"gitlab.com/ruijc/storage/file"
 )
 
 type Url struct {
-	client *internal.Client
+	client *file.RpxClient
 	param  *param.Url
 }
 
-func NewUrl(client *internal.Client) *Url {
+func NewUrl(client *file.RpxClient) *Url {
 	return &Url{
 		client: client,
 		param:  param.NewUrl(),
