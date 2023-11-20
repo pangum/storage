@@ -1,7 +1,6 @@
 package get
 
 import (
-	"gitea.com/ruijc/app"
 	"github.com/goexl/http"
 	"github.com/goexl/log"
 	"github.com/pangum/grpc"
@@ -14,5 +13,4 @@ type Client struct {
 	Client *grpc.Client
 	Http   *http.Client
 	Logger log.Logger
-	App    app.Id
 }
