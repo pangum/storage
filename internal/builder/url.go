@@ -3,18 +3,18 @@ package builder
 import (
 	"time"
 
-	"gitea.com/ruijc/storage/internal/getter"
-	"gitea.com/ruijc/storage/internal/param"
-	"gitlab.com/ruijc/storage/core"
-	"gitlab.com/ruijc/storage/file"
+	"github.com/pangum/storage/internal/getter"
+	"github.com/pangum/storage/internal/param"
+	"gitlab.com/ruijc/storage/core/kernel"
+	"gitlab.com/ruijc/storage/protocol"
 )
 
 type Url struct {
-	client *file.RpxClient
+	client *protocol.FxClient
 	param  *param.Url
 }
 
-func NewUrl(client *file.RpxClient) *Url {
+func NewUrl(client *protocol.FxClient) *Url {
 	return &Url{
 		client: client,
 		param:  param.NewUrl(),
@@ -22,20 +22,20 @@ func NewUrl(client *file.RpxClient) *Url {
 }
 
 func (u *Url) Inline() (url *Url) {
-	u.param.Type = core.UrlType_URL_TYPE_INLINE
+	u.param.Type = kernel.UrlType_URL_TYPE_INLINE
 	url = u
 
 	return
 }
 
 func (u *Url) Attachment() (url *Url) {
-	u.param.Type = core.UrlType_URL_TYPE_ATTACHMENT
+	u.param.Type = kernel.UrlType_URL_TYPE_ATTACHMENT
 	url = u
 
 	return
 }
 
-func (u *Url) Type(typ core.UrlType) (url *Url) {
+func (u *Url) Type(typ kernel.UrlType) (url *Url) {
 	u.param.Type = typ
 	url = u
 
@@ -43,13 +43,13 @@ func (u *Url) Type(typ core.UrlType) (url *Url) {
 }
 
 func (u *Url) Internet() (url *Url) {
-	u.param.Export = core.Export_EXPORT_INTERNET
+	u.param.Export = kernel.Export_EXPORT_INTERNET
 	url = u
 
 	return
 }
 
-func (u *Url) Export(export core.Export) (url *Url) {
+func (u *Url) Export(export kernel.Export) (url *Url) {
 	u.param.Export = export
 	url = u
 

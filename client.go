@@ -1,7 +1,7 @@
 package storage
 
 import (
-	"gitea.com/ruijc/storage/internal/core"
+	"github.com/pangum/storage/internal/core"
 )
 
 type Client = core.Client

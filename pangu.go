@@ -1,13 +1,13 @@
 package storage
 
 import (
-	"gitea.com/ruijc/storage/internal/plugin"
 	"github.com/pangum/pangu"
+	"github.com/pangum/storage/internal/plugin"
 )
 
 func init() {
-	creator := new(plugin.Creator)
+	ctor := new(plugin.Constructor)
 	pangu.New().Get().Dependency().Put(
-		creator.NewClient,
+		ctor.NewClient,
 	).Build().Build().Apply()
 }
