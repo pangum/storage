@@ -60,6 +60,18 @@ func (s *Client) Abort(ctx context.Context, id int64) (*file.AbortRsp, error) {
 	})
 }
 
+func (s *Client) Use(ctx context.Context, id int64) (*file.UseRsp, error) {
+	return s.client.Use(ctx, &file.UseReq{
+		Id: id,
+	})
+}
+
+func (s *Client) Release(ctx context.Context, id int64) (*file.ReleaseRsp, error) {
+	return s.client.Release(ctx, &file.ReleaseReq{
+		Id: id,
+	})
+}
+
 func (s *Client) Delete(ctx context.Context, id int64) (*file.DeleteRsp, error) {
 	return s.client.Delete(ctx, &file.DeleteReq{
 		Id: id,
