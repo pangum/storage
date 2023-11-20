@@ -3,14 +3,11 @@ module github.com/pangum/storage
 go 1.21
 
 require (
-	github.com/goexl/gox v0.3.8
 	github.com/goexl/http v0.1.0
 	github.com/goexl/log v0.0.5
 	github.com/pangum/grpc v0.4.3
 	github.com/pangum/pangu v0.4.4
-	gitlab.com/ruijc/storage/core v0.0.6
 	gitlab.com/ruijc/storage/protocol v0.0.5
-	google.golang.org/protobuf v1.31.0
 )
 
 require (
@@ -26,6 +23,7 @@ require (
 	github.com/goexl/env v0.0.2 // indirect
 	github.com/goexl/exc v0.0.5 // indirect
 	github.com/goexl/gfx v0.1.7 // indirect
+	github.com/goexl/gox v0.3.8 // indirect
 	github.com/goexl/hud v0.0.8 // indirect
 	github.com/goexl/mengpo v0.2.4 // indirect
 	github.com/goexl/xiren v0.0.5 // indirect
@@ -44,6 +42,7 @@ require (
 	github.com/urfave/cli/v2 v2.25.7 // indirect
 	github.com/xrash/smetrics v0.0.0-20201216005158-039620a65673 // indirect
 	github.com/zs5460/art v0.3.0 // indirect
+	gitlab.com/ruijc/storage/core v0.0.6 // indirect
 	golang.org/x/crypto v0.15.0 // indirect
 	golang.org/x/net v0.18.0 // indirect
 	golang.org/x/sys v0.14.0 // indirect
@@ -51,5 +50,6 @@ require (
 	google.golang.org/genproto/googleapis/api v0.0.0-20231106174013-bbf56f31fb17 // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20231106174013-bbf56f31fb17 // indirect
 	google.golang.org/grpc v1.59.0 // indirect
+	google.golang.org/protobuf v1.31.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )

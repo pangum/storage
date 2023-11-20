@@ -1,7 +1,7 @@
 package storage
 
 import (
-	"github.com/pangum/storage/internal/core"
+	"gitlab.com/ruijc/storage/protocol"
 )
 
-type Client = core.Client
+type Client = protocol.FxClient
