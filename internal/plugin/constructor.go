@@ -1,8 +1,8 @@
 package plugin
 
 import (
-	"github.com/pangum/storage/internal/get"
 	"github.com/pangum/storage/internal/internal/constant"
+	"github.com/pangum/storage/internal/put"
 	"gitlab.com/ruijc/storage/protocol"
 )
 
@@ -10,6 +10,6 @@ type Constructor struct {
 	// 构造方法
 }
 
-func (*Constructor) NewClient(get get.Client) *protocol.FxClient {
-	return protocol.NewFxClient(get.Client.Connection(constant.LabelStorage), get.Http.Client, get.Logger)
+func (*Constructor) NewClient(client put.Client) *protocol.FxClient {
+	return protocol.NewFxClient(client.Client.Connection(constant.LabelStorage), client.Http.Client, client.Logger)
 }

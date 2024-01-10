@@ -1,4 +1,4 @@
-package get
+package put
 
 import (
 	"github.com/goexl/http"
@@ -8,7 +8,7 @@ import (
 )
 
 type Client struct {
-	pangu.Get
+	pangu.Put
 
 	Client *grpc.Client
 	Http   *http.Client
