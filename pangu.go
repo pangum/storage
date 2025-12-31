@@ -7,7 +7,7 @@ import (
 
 func init() {
 	ctor := new(plugin.Constructor)
-	pangu.New().Get().Dependency().Put(
+	di.New().Instance().Dependency().Put(
 		ctor.NewClient,
 	).Build().Build().Apply()
 }
